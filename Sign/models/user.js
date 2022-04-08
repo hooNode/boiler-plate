@@ -8,19 +8,15 @@ const userSchema = mongoose.Schema({
   email: {
     type: String,
     trim: true,
-    unique: true,
+    unique: 1,
   },
   password: {
     type: String,
     minlength: 5,
   },
-  lastname: {
-    type: String,
-    maxlength: 50,
-  },
   role: {
-    type: String,
-    default: "user",
+    type: Number,
+    default: 0,
   },
   image: String,
   token: {
@@ -33,4 +29,4 @@ const userSchema = mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
-module.export = User;
+module.exports = { User };
