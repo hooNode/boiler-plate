@@ -4,6 +4,7 @@ const port = 5000;
 
 const bodyParser = require("body-parser");
 const { User } = require("./models/User");
+const config = require("./config/key");
 
 // application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,14 +14,12 @@ app.use(bodyParser.json());
 
 const mongoose = require("mongoose");
 mongoose
-  .connect(
-    "mongodb+srv://guinness5167:s2941208@boiler-project-sign.emgtm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-  )
+  .connect(config.mongoURI)
   .then(() => console.log("Mongoose Connected"))
   .catch((err) => console.log(err));
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Hello World!!!!!");
 });
 
 app.post("/register", (req, res) => {
