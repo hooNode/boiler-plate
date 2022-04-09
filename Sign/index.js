@@ -60,7 +60,7 @@ app.post("/login", (req, res) => {
           .cookie("x_auth", userInfo.token)
           .status(200)
           .json({ loginSuccess: true, userInfo: userInfo });
-        console.log("로그인이 성공적으로 이뤄졌습니다.");
+        console.log("토큰의 생성과 로그인이 성공적으로 이뤄졌습니다.");
       });
     });
   });
