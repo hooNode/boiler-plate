@@ -23,11 +23,13 @@ mongoose
   .catch((err) => console.log(err));
 
 app.get("/", (req, res) => {
+  console.log("처음에는 실행되겠죠?");
   res.send("Hello World!!!!!");
 });
 
 // register route
-app.post("api/users/register", (req, res) => {
+app.post("/api/users/register", (req, res) => {
+  console.log("찍히나용?");
   // 회원 가입 할 때 필요한 정보들을 client에서 가져오면 이것들을 DB에 넣어놓는다.
   const user = new User(req.body);
   user.save((err, userInfo) => {
@@ -36,7 +38,7 @@ app.post("api/users/register", (req, res) => {
   });
 });
 
-app.post("api/users/login", (req, res) => {
+app.post("/api/users/login", (req, res) => {
   // 1. 요청된 이메일을 DB에서 있는지 찾는다.
   User.findOne({ email: req.body.email }, (err, userInfo) => {
     if (!userInfo)
@@ -67,7 +69,8 @@ app.post("api/users/login", (req, res) => {
   });
 });
 
-app.get("api/users/auth", auth, (req, res) => {
+app.get("/api/users/auth", auth, (req, res) => {
+  console.log("로그인된 유저입니다.");
   res.status(200).json({
     _id: req.user._id,
     isAdmin: req.user.role === 0 ? false : true,
@@ -77,6 +80,24 @@ app.get("api/users/auth", auth, (req, res) => {
     role: req.user.role,
     image: req.user.image,
   });
+});
+
+app.get("/api/users/logout", auth, (req, res) => {
+  User.findOneAndUpdate(
+    {
+      _id: req.user._id,
+    },
+    {
+      token: "",
+    },
+    (err, user) => {
+      if (err) return res.json({ success: false, message: err.message });
+      console.log("로그아웃 완료");
+      return res
+        .status(200)
+        .json({ success: true, message: "성공적으로 로그아웃 되셨습니다." });
+    }
+  );
 });
 
 app.listen(port, () => {
