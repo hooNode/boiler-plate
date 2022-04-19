@@ -4,8 +4,8 @@
   "description": "boiler plate for sign in and sign up",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "backend": "nodemon index.js",
+    "start": "node server/index.js",
+    "backend": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "hooNode",
@@ -16,7 +16,8 @@
     "cookie-parser": "^1.4.6",
     "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.2.10"
+    "mongoose": "^6.2.10",
+    "tar": "^6.1.11"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

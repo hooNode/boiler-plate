@@ -27,6 +27,10 @@ app.get("/", (req, res) => {
   res.send("Hello World!!!!!");
 });
 
+app.get("/api/hello", (req, res) => {
+  res.send("하이하이");
+});
+
 // register route
 app.post("/api/users/register", (req, res) => {
   console.log("찍히나용?");
