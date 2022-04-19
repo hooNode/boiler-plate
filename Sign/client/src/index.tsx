@@ -10,6 +10,7 @@ import promiseMiddleware from "redux-promise";
 import ReduxThunk from "redux-thunk";
 import Reducer from "./_reducers";
 
+// 이 부분 블로그
 declare global {
   interface Window {
     __REDUX_DEVTOOLS_EXTENSION__: any;

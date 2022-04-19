@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 // 이 부분 블로그
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
