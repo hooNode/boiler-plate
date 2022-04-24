@@ -32,7 +32,6 @@ const userSchema = mongoose.Schema({
 
 // User 모델에 유저 정보를 저장하기 전에 다음 스크립트가 실행된다.
 userSchema.pre("save", function (next) {
-  console.log("여기는 실행돼요! pre");
   var user = this;
 
   // 비밀번호를 암호화 시킨다.

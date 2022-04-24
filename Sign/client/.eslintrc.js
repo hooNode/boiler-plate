@@ -19,6 +19,5 @@ module.exports = {
     "react/prop-types": "off",
     "react/display-name": "off",
     "react/no-children-prop": "off",
-    "@typescript-eslint/no-explicit-any": "off",
   },
 };

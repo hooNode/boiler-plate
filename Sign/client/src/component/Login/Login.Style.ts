@@ -8,3 +8,12 @@ export const Wrapper = styled.div`
   align-items: center;
   font-size: 20px;
 `;
+
+export const LoginContainer = styled.form``;
+export const EmailText = styled.div``;
+export const EmailInput = styled.input``;
+export const PasswordTitle = styled.div``;
+export const PasswordInput = styled.input``;
+export const LoginButton = styled.button`
+  all: unset;
+`;
