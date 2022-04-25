@@ -18,6 +18,8 @@ concurrently를 활용한 백엔드와 프론트 서버 동시 실행
 
 ## 기능
 
+https://user-images.githubusercontent.com/56389950/165181932-7d7512ce-d197-4b3c-8a86-17629c36fb94.mov
+
 ### 1. 로그인
 
 ### 2. 회원가입
@@ -28,3 +30,7 @@ concurrently를 활용한 백엔드와 프론트 서버 동시 실행
 비로그인 시 login 버튼, signUp 버튼 활성화
 
 ### 4. 푸터
+
+
+
+
