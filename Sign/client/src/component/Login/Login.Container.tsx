@@ -12,6 +12,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../_action/user_action";
 import { useNavigate } from "react-router-dom";
+import { withAuth } from "../../hoc/isAuth";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -36,13 +37,19 @@ export default function LoginPage() {
       email,
       password,
     };
-
+    console.log(body);
     // @ts-ignore
     dispatch(loginUser(body)).then((res) => {
       if (res.payload.loginSuccess) {
         navigate("/");
+      } else {
+        alert("err");
       }
     });
+  };
+
+  const onClickSignUpButton = () => {
+    navigate("/register");
   };
 
   return (
@@ -52,6 +59,7 @@ export default function LoginPage() {
       onChangeEmail={onChangeEmail}
       onChangePassword={onChangePassword}
       onClickLoginButton={onClickLoginButton}
+      onClickSignUpButton={onClickSignUpButton}
     />
   );
 }

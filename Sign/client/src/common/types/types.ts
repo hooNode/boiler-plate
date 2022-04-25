@@ -6,9 +6,32 @@ export interface LoginProps {
   onChangeEmail: (e: ChangeEvent<HTMLInputElement>) => void;
   onChangePassword: (e: ChangeEvent<HTMLInputElement>) => void;
   onClickLoginButton: (e: FormEvent<HTMLFormElement>) => void;
+  onClickSignUpButton: () => void;
 }
 
-export interface CreateUserResponse {
+export interface RegisterProps {
   email: string;
   password: string;
+  name: string;
+  confirmPassword: string;
+  onChangeEmail: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChangeName: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChangePassword: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChangeConfirmPassword: (e: ChangeEvent<HTMLInputElement>) => void;
+  onClickSignUpButton: (e: FormEvent<HTMLFormElement>) => void;
+  isMatch: boolean;
+  isRequiredEmail: boolean;
+  isRequiredName: boolean;
+  isRequiredPassword: boolean;
+}
+
+export interface LoginUserResponse {
+  email: string;
+  password: string;
+}
+export interface CreateUserResponse {
+  email: string;
+  name: string;
+  password: string;
+  confirmPassword: string;
 }

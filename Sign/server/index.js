@@ -23,17 +23,17 @@ mongoose
   .catch((err) => console.log(err));
 
 app.get("/", (req, res) => {
-  console.log("처음에는 실행되겠죠?");
+  console.log("랜딩페이지");
   res.send("Hello World!!!!!");
 });
 
 app.get("/api/hello", (req, res) => {
-  res.send("하이하이");
+  res.send("테스트 API");
 });
 
 // register route
 app.post("/api/users/register", (req, res) => {
-  console.log("찍히나용?");
+  console.log("회원가입 시도 중");
   // 회원 가입 할 때 필요한 정보들을 client에서 가져오면 이것들을 DB에 넣어놓는다.
   const user = new User(req.body);
   user.save((err, userInfo) => {
