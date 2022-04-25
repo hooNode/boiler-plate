@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, FormEventHandler, MouseEvent } from "react";
+import { NavigateFunction } from "react-router-dom";
 
 export interface LoginProps {
   email: string;
@@ -23,6 +24,12 @@ export interface RegisterProps {
   isRequiredEmail: boolean;
   isRequiredName: boolean;
   isRequiredPassword: boolean;
+}
+
+export interface NavbarProps {
+  isLogin: boolean;
+  onClickLogOut: () => void;
+  navigate: NavigateFunction;
 }
 
 export interface LoginUserResponse {

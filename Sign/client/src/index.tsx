@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
-import Footer from "./layout/Footer/Footer.Container";
-import Navbar from "./layout/Navbar/Nabar.Container";
 import App from "./App";
 import { applyMiddleware } from "redux";
 import { legacy_createStore as createStore } from "redux";
@@ -34,9 +32,7 @@ root.render(
           window.__REDUX_DEVTOOLS_EXTENSION__()
       )}
     >
-      <Navbar />
       <App />
-      <Footer />
     </Provider>
   </React.StrictMode>
 );
