@@ -76,8 +76,7 @@ export default function RegisterPage() {
       isRequiredName,
       isRequiredEmail,
     ];
-    if (!isTrue.some((el) => el)) return;
-
+    if (!isTrue.every((el) => el)) return;
     // @ts-ignore
     dispatch(registerUser(body)).then((res) => {
       if (res.payload.success) {
