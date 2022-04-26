@@ -8,8 +8,21 @@ MERN(feat.Redux)를 사용한 sign boiler-plate
 ```
 $npm install
 ```
+### 2. mongoURI 연결하기
 
-### 2. npm run dev
+server/config 안에 dev.js를 입력하고
+
+mongoDB에서 받은 URI를 입력한다
+
+```js
+module.exports = {
+  mongoURI:
+    "secretKey",
+};
+
+```
+
+### 3. npm run dev
 
 ```
 $npm run dev
