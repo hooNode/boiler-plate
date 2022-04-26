@@ -1,42 +1,29 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import NavbarUI from "./Navbar.Presenter";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { logout } from "../../_action/user_action";
+import NavbarUI from "./Navbar.Presenter";
 
 const LoadingNavBar = styled.div`
   height: 33px;
 `;
 
 export default function Nabar() {
+  const dispatch = useDispatch();
+  const user: any = useSelector((state) => state);
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
-  const getLoginUser = async () => {
-    const result = await axios.get("/api/users/auth").then((res) => res.data);
-    setIsLogin(result.isAuth);
-  };
-
-  const onClickLogOut = async () => {
-    await axios.get("/api/users/logout").then((res) => {
-      if (res.status == 200) {
-        alert(res.data.message);
-        navigate("/login");
-      } else {
-        alert("로그아웃이 되지 않았습니다.");
-      }
-    });
+  const onClickLogOut = () => {
+    // @ts-ignore
+    dispatch(logout()).then((res) => setIsLogin(res.payload));
   };
 
   useEffect(() => {
-    getLoginUser();
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 100);
+    // @ts-ignore
+    setIsLogin(user.user.loginState);
   }, [navigate]);
-
-  if (isLoading) return <LoadingNavBar />;
 
   return (
     <NavbarUI

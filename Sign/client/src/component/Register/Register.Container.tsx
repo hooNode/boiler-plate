@@ -79,7 +79,7 @@ export default function RegisterPage() {
     if (!isTrue.every((el) => el)) return;
     // @ts-ignore
     dispatch(registerUser(body)).then((res) => {
-      if (res.payload.success) {
+      if (res.payload) {
         navigate("/login");
       } else {
         alert("err");

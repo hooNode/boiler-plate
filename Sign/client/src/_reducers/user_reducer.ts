@@ -1,18 +1,26 @@
-import { LOGIN_USER, REGISTER_USER, AUTH_USER } from "../_action/types";
+import {
+  LOGIN_USER,
+  REGISTER_USER,
+  AUTH_USER,
+  LOGOUT_USER,
+} from "../_action/types";
 
-// const LOGIN_USER = "LOGIN_USER";
 export default function (state = {}, action: any) {
   switch (action.type) {
     case LOGIN_USER:
-      return { ...state, loginSuccess: action.payload };
+      return { ...state, loginState: action.payload };
       break;
 
     case REGISTER_USER:
-      return { ...state, register: action.payload };
+      return { ...state, loginState: action.payload };
       break;
 
     case AUTH_USER:
-      return { ...state, userData: action.payload };
+      return { ...state, loginState: action.payload };
+      break;
+
+    case LOGOUT_USER:
+      return { ...state, loginState: action.payload };
       break;
 
     default:
