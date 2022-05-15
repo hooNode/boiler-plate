@@ -6,7 +6,9 @@ import user from "./user_reducer";
 const persistConfig = {
   key: "root",
   storage: storage,
+  // persist 적용할 목록
   whitelist: ["user"],
+  // persist 적용하지 않을 목록
   // blacklist: ["user"],
 };
 
